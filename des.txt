@@ -1,0 +1,10 @@
+//-post request on volunteer's endpoint should make a new volunteer, if the joinDate is empty it should be equivalent to the 
+         now time. Hint: find the js  func that return the time now
+ //       - skills value should be an array.
+        - position value should be an object with two keys ( role and roldId)
+        - role should have a string value (volunteer, leader ,boradMember)
+        - the volunteer could be a leader of a board member or a normal volunteer.
+        - create a new endpoint for the leaders, each leader object should have (id, committee, tasks) keys(get-put-update-delete)
+        - the roleId is the same as the id in the leaders array if the volunteer's role is a leader.
+        - create a new endpoint for the board, each board object should have (id,  role , tasks) keys(get-put-update-delete)
+       - the roleId is the same as the id in the board array if the volunteer's role is a board.
