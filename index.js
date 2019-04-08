@@ -24,13 +24,13 @@ console.log('App name : ' + config.get('name'));
 //console.log('Mail password : ' + config.get('mail.password'));
 
 // only cmd work to change Node environment variable
-if(app.get('env') === 'development'){ 
-    app.use(morgan('short'));
-    startupDebugger('morgan enabled ... ');
+if (app.get("env") === "development") {
+  app.use(morgan("short"));
+  startupDebugger("morgan enabled ... ");
 }
 
 //enbale debug for database
-dbDebugger('Database is running ...');
+dbDebugger("Database is running ...");
 
 port = 5000 || process.env.PORT;
 app.listen(port, () => {
