@@ -4,24 +4,24 @@ const router = express.Router();
 const startupDebugger = require('debug')('app:startup');
 
 const boardMembers = [{
-        id: 20,
-        role : "chaiman",
-        tasks : []
-    },
-    {
-        id: 21,
-        role: "Vicecharman",
-        tasks: []
-    },
-    {
-        id: 22,
-        role: "secretary",
-        tasks: []
-    }
+    id: 20,
+    role: "chaiman",
+    tasks: []
+},
+{
+    id: 21,
+    role: "Vicecharman",
+    tasks: []
+},
+{
+    id: 22,
+    role: "secretary",
+    tasks: []
+}
 ]
 
 
-router.get('/', (req, res) => { res.send(boardMembers);});
+router.get('/', (req, res) => { res.send(boardMembers); });
 
 router.get('/:id', (req, res) => {
     const boardPerson = boardMembers.find(c => c.id === parseInt(req.params.id));
@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
     const boardPerson = {
         id: boardMembers.length + 1,
         role: req.body.role,
-        tasks : req.body.tasks 
+        tasks: req.body.tasks
     }
     boardMembers.push(boardPerson);
     res.send(boardPerson);
@@ -48,7 +48,7 @@ router.delete('/:id', (req, res) => {
     const index = boardMembers.indexOf(boardPerson);
     boardMembers.splice(index, 1);
 
-   // res.send(volunteer);
+    // res.send(volunteer);
     res.send(boardMembers);
 });
 
@@ -56,9 +56,9 @@ router.put('/:id', (req, res) => {
     const boardPerson = boardMembers.find(c => c.id === parseInt(req.params.id));
     if (!boardPerson) return res.status(404).send("there is no vounteer with such id");
     //console.log(volunteers);
-     startupDebugger('put method is used ... ');
-    boardPerson.role = req.body.role ;
-    boardPerson.tasks = req.body.tasks ;
+    startupDebugger('put method is used ... ');
+    boardPerson.role = req.body.role;
+    boardPerson.tasks = req.body.tasks;
 
     res.send(boardPerson);
 });
@@ -71,4 +71,4 @@ function validateBoard(leader) {
     return Joi.validate(leader, schema);
 }
 
-module.exports = router ;
+module.exports = router;

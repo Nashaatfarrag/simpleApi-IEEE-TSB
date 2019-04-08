@@ -116,7 +116,7 @@ router.put('/:id', (req, res) => {
     if (!volunteer) return res.status(404).send("there is no vounteer with such id");
     //console.log(volunteers);
      startupDebugger('put method is used ... ');
-    vounteeredited = {
+    let vounteeredited = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         age: req.body.age,
