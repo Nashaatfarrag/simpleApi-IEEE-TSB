@@ -1,6 +1,6 @@
-const express = require('express');
-const Joi = require('joi');
-const router = express.Router();
+import { Router } from 'express';
+import { allow, validate } from 'joi';
+const router = Router();
 const startupDebugger = require('debug')('app:startup');
 
 const boardMembers = [{
@@ -65,10 +65,10 @@ router.put('/:id', (req, res) => {
 
 function validateBoard(leader) {
     const schema = {
-        role: Joi.allow(),
-        tasks: Joi.allow()
+        role: allow(),
+        tasks: allow()
     }
-    return Joi.validate(leader, schema);
+    return validate(leader, schema);
 }
 
-module.exports = router;
+export default router;
